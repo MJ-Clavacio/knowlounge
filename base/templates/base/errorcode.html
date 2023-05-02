@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Error Page</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+
+      .error-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #010149;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px #ccc;
+        text-align: center;
+        color: #ffffff
+      }
+
+      h1 {
+        color: #f00;
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: #00f;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .countdown {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+
+    </style>
+  </head>
+  
+  <body>
+      <div class="error-container">
+        <h1>ERROR CODE: 404</h1>
+        <p>The page you requested could not be found.</p>
+        <p>Please check the URL and try again.</p>
+        <div class="countdown">Redirecting in <span id="countdown">3</span> seconds...</div>
+      </div>
+      
+
+      <script>
+        var timeLeft = 5;
+        var countdownTimer = setInterval(function() {
+          timeLeft--;
+          document.getElementById("countdown").textContent = timeLeft;
+          if (timeLeft <= 0) {
+            clearInterval(countdownTimer);
+            history.go(-1);
+          }
+        }, 1000);
+      </script>
+  </body>
+  
+</html>
