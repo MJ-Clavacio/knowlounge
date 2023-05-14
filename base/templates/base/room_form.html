@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="layout__body">
-        <form class="form" action="" method="POST">
+        <form class="form" action="{% url 'create-room' %}" method="POST">
           {% csrf_token %}
 
           <div class="form__group">
@@ -41,6 +41,11 @@
           <div class="form__group">
             <label for="room_description">Room Description</label>
             {{form.description}}
+          </div>
+
+          <div class="form__group">
+            <label for="room_link">Add Link</label>
+            {{form.link}}
           </div>
 
           <div class="form__action">

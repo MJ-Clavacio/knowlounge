@@ -29,12 +29,11 @@ from django.views.static import serve
 
 handler404 = TemplateView.as_view(template_name='base/errorcode.html')
 
-
 urlpatterns = [
     re_path(r'^images/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', include('base.urls')),
     path('api/',include('base.api.urls'))
 ]
